@@ -2,7 +2,6 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 import os
-from dotenv import load_dotenv
 import asyncio
 from flask import Flask
 import threading
@@ -21,7 +20,6 @@ def keep_alive():
     t.start()
 
 
-load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 if not TOKEN:
     raise ValueError("Token Discord introuvable !")
@@ -205,4 +203,5 @@ async def candidature(interaction: discord.Interaction, role_souhaite: str, moti
         )
 
 keep_alive()
+
 bot.run(TOKEN)
